@@ -22,5 +22,7 @@ status (dipinjam / selesai)
 
 
 
-alan Struktur MVC
-lala  Model & Controller Class
+alan Struktur MVC api
+lala  Model & Controller Class 
+moza bikin db.php di config
+rifki dan nazmi bikin Layout Tailwind CSS, Integrasi Fetch API, Form & Modal UI
