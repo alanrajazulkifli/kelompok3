@@ -11,4 +11,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 require_once __DIR__ . '/../app/controller/bukucontroller.php';
 
+$controller = new BukuController();
+$requestMethod = $_SERVER['REQUEST_METHOD'];
 
+switch ($requestMethod) {
+    case 'GET':
+        echo $controller->getAllBuku();
+        break;
+    case 'POST':
+        $data = json_decode(file_get_contents("php://input"));
+        echo $controller->storeBuku($data);
+        break;
+
+    case 'DELETE':
+        $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+        if ($id > 0) {
+            echo $controller->deleteBuku($id);
+        } else {
+            http_response_code(400);
+            echo json_encode(array("status" => "warning", "message" => "ID buku tidak valid."));
+        }
+        break;
+    default:
+        http_response_code(405);
+        echo json_encode(array("message" => "Metode HTTP tidak diizinkan."));
+        break;
+}
+
+?>
