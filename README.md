@@ -18,3 +18,9 @@ buku_id (Foreign Key → BUKU.id)
 peminjam
 tgl_jatuh_tempo
 status (dipinjam / selesai)
+
+
+
+
+alan Struktur MVC
+lala  Model & Controller Class
