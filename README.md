@@ -4,6 +4,7 @@ Tabel BUKU
 
 db_perpustakaan
 tb_buku
+
 id (Primary Key)
 isbn
 judul
