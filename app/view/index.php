@@ -48,8 +48,10 @@
 
     <!-- Forms Row -->
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-5">
-        
+
       <!-- Form Tambah Buku -->
+       <?php include 'app/modul/tambah.php'; 
+       ?>
       
           <div>
            
@@ -86,7 +88,6 @@
 
     <!-- Tabel Daftar Buku -->
     
-      
 
     <!-- Tabel Riwayat Peminjaman -->
     <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
