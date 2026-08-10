@@ -4,193 +4,179 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perpustakaan Digital</title>
-  <!-- Google Fonts & FontAwesome Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Bootstrap CSS -->
+</head>
+<body class="bg-slate-100 font-['Inter'] text-slate-800 pb-10">
 
-      <!-- Navbar -->
-  <nav class="navbar">
-    <div class="navbar-brand">
+  <!-- Navbar -->
+  <nav class="bg-[#524bee] text-white px-8 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-2 text-xl font-bold">
       <i class="fa-regular fa-bookmark"></i>
       <span>Perpustakaan Digital</span>
     </div>
-    <div class="navbar-badge">
-      Aplikasi Peminjaman Sederhana
-    </div>
+    <span class="bg-white/20 px-4 py-1.5 rounded-full text-xs font-medium">Aplikasi Peminjaman Sederhana</span>
   </nav>
 
-   <div class="container">
+  <div class="max-w-[1200px] mx-auto mt-8 px-5 space-y-6">
+    
     <!-- Top Summary Cards -->
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-icon icon-blue">
-          <i class="fa-regular fa-square"></i>
-        </div>
-        <div class="stat-info">
-          <div class="label">Total Judul Buku</div>
-          <div class="value">2</div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="bg-white border border-slate-200 rounded-xl p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center text-xl"><i class="fa-regular fa-square"></i></div>
+        <div>
+          <p class="text-xs font-semibold text-slate-500">Total Judul Buku</p>
+          <p class="text-2xl font-bold">2</p>
         </div>
       </div>
-
-      <div class="stat-card">
-        <div class="stat-icon icon-green">
-          <i class="fa-solid fa-layer-group"></i>
-        </div>
-        <div class="stat-info">
-          <div class="label">Total Stok Tersedia</div>
-          <div class="value">8</div>
+      <div class="bg-white border border-slate-200 rounded-xl p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl"><i class="fa-solid fa-layer-group"></i></div>
+        <div>
+          <p class="text-xs font-semibold text-slate-500">Total Stok Tersedia</p>
+          <p class="text-2xl font-bold">8</p>
         </div>
       </div>
-
-      <div class="stat-card">
-        <div class="stat-icon icon-amber">
-          <i class="fa-solid fa-arrow-right-arrow-left"></i>
-        </div>
-        <div class="stat-info">
-          <div class="label">Sedang Dipinjam</div>
-          <div class="value">0</div>
+      <div class="bg-white border border-slate-200 rounded-xl p-5 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center text-xl"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+        <div>
+          <p class="text-xs font-semibold text-slate-500">Sedang Dipinjam</p>
+          <p class="text-2xl font-bold">0</p>
         </div>
       </div>
     </div>
 
-    
     <!-- Forms Row -->
-    <div class="forms-grid">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-5">
       <!-- Form Tambah Buku -->
-      <div class="card">
-        <div class="card-title">
-          <i class="fa-regular fa-circle-plus"></i>
-          <span>Tambah Buku Baru</span>
-        </div>
-        <form>
-          <div class="form-group">
-            <label>Judul Buku</label>
-            <input type="text" class="form-control" placeholder="Contoh: Pemrograman Web">
+      <div class="bg-white border border-slate-200 rounded-xl p-6">
+        <h2 class="flex items-center gap-2 text-lg font-bold text-slate-800 mb-5">
+          <i class="fa-regular fa-circle-plus text-[#524bee]"></i> Tambah Buku Baru
+        </h2>
+        <form class="space-y-4 text-xs font-semibold text-slate-600">
+          <div>
+            <label class="block mb-1.5">Judul Buku</label>
+            <input type="text" class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee]" placeholder="Contoh: Pemrograman Web">
           </div>
-          <div class="form-group">
-            <label>Kode ISBN</label>
-            <input type="text" class="form-control" placeholder="Contoh: 978-602-1234-56-7">
+          <div>
+            <label class="block mb-1.5">Kode ISBN</label>
+            <input type="text" class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee]" placeholder="Contoh: 978-602-1234-56-7">
           </div>
-          <div class="form-group">
-            <label>Kategori</label>
-            <select class="form-control">
+          <div>
+            <label class="block mb-1.5">Kategori</label>
+            <select class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee] bg-white">
               <option value="">-- Pilih Kategori --</option>
               <option value="Teknologi">Teknologi</option>
               <option value="Novel">Novel</option>
             </select>
           </div>
-          <div class="form-group">
-            <label>Jumlah Stok</label>
-            <input type="number" class="form-control" placeholder="Contoh: 5">
+          <div>
+            <label class="block mb-1.5">Jumlah Stok</label>
+            <input type="number" class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee]" placeholder="Contoh: 5">
           </div>
-          <button type="button" class="btn btn-primary">Simpan Buku</button>
+          <button type="button" class="w-full py-2.5 bg-[#524bee] hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg">Simpan Buku</button>
         </form>
       </div>
 
       <!-- Form Peminjaman Buku -->
-      <div class="card">
-        <div class="card-title">
-          <i class="fa-regular fa-user"></i>
-          <span>Form Peminjaman Buku</span>
-        </div>
-        <form>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nama Peminjam</label>
-              <input type="text" class="form-control" placeholder="Masukkan nama peminjam">
+      <div class="bg-white border border-slate-200 rounded-xl p-6">
+        <h2 class="flex items-center gap-2 text-lg font-bold text-slate-800 mb-5">
+          <i class="fa-regular fa-user text-[#524bee]"></i> Form Peminjaman Buku
+        </h2>
+        <form class="space-y-4 text-xs font-semibold text-slate-600">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block mb-1.5">Nama Peminjam</label>
+              <input type="text" class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee]" placeholder="Masukkan nama peminjam">
             </div>
-            <div class="form-group">
-              <label>Pilih Buku</label>
-              <select class="form-control">
+            <div>
+              <label class="block mb-1.5">Pilih Buku</label>
+              <select class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee] bg-white">
                 <option value="">-- Pilih Buku yang Tersedia --</option>
               </select>
             </div>
           </div>
-          <div class="form-row" style="align-items: flex-end;">
-            <div class="form-group" style="margin-bottom: 0;">
-              <label>Tanggal Pinjam</label>
-              <input type="date" class="form-control" value="2026-10-08">
-            </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
             <div>
-              <button type="button" class="btn btn-success">Proses Peminjaman</button>
+              <label class="block mb-1.5">Tanggal Pinjam</label>
+              <input type="date" class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee] bg-white" value="2026-10-08">
             </div>
+            <button type="button" class="w-full py-2.5 bg-[#059669] hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg">Proses Peminjaman</button>
           </div>
         </form>
       </div>
     </div>
 
     <!-- Tabel Daftar Buku -->
-    <div class="card table-card">
-      <div class="card-title">
-        <i class="fa-solid fa-chart-simple"></i>
-        <span>Daftar Buku Perpustakaan</span>
+    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+      <h2 class="flex items-center gap-2 text-lg font-bold text-slate-800 p-6 pb-4">
+        <i class="fa-solid fa-chart-simple text-[#524bee]"></i> Daftar Buku Perpustakaan
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-slate-50 border-y border-slate-200 text-[11px] font-bold text-slate-600 uppercase">
+            <tr>
+              <th class="px-6 py-3.5">NO</th>
+              <th class="px-6 py-3.5">KODE ISBN</th>
+              <th class="px-6 py-3.5">JUDUL BUKU</th>
+              <th class="px-6 py-3.5">KATEGORI</th>
+              <th class="px-6 py-3.5">STOK</th>
+              <th class="px-6 py-3.5">AKSI</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="px-6 py-4">1</td>
+              <td class="px-6 py-4 text-slate-500">978-602-8519-93-9</td>
+              <td class="px-6 py-4 font-bold">Belajar JavaScript Modern</td>
+              <td class="px-6 py-4"><span class="bg-slate-100 px-3 py-1 rounded-full text-xs">Teknologi</span></td>
+              <td class="px-6 py-4 font-semibold text-emerald-600">5 unit</td>
+              <td class="px-6 py-4"><button class="text-rose-500"><i class="fa-regular fa-trash-can"></i></button></td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4">2</td>
+              <td class="px-6 py-4 text-slate-500">978-623-01-0001-1</td>
+              <td class="px-6 py-4 font-bold">Laskar Pelangi</td>
+              <td class="px-6 py-4"><span class="bg-slate-100 px-3 py-1 rounded-full text-xs">Novel</span></td>
+              <td class="px-6 py-4 font-semibold text-emerald-600">3 unit</td>
+              <td class="px-6 py-4"><button class="text-rose-500"><i class="fa-regular fa-trash-can"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>NO</th>
-            <th>KODE ISBN</th>
-            <th>JUDUL BUKU</th>
-            <th>KATEGORI</th>
-            <th>STOK</th>
-            <th>AKSI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>978-602-8519-93-9</td>
-            <td><strong>Belajar JavaScript Modern</strong></td>
-            <td><span class="badge-category">Teknologi</span></td>
-            <td><span class="text-stock">5 unit</span></td>
-            <td>
-              <button class="btn-delete"><i class="fa-regular fa-trash-can"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>978-623-01-0001-1</td>
-            <td><strong>Laskar Pelangi</strong></td>
-            <td><span class="badge-category">Novel</span></td>
-            <td><span class="text-stock">3 unit</span></td>
-            <td>
-              <button class="btn-delete"><i class="fa-regular fa-trash-can"></i></button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
 
     <!-- Tabel Riwayat Peminjaman -->
-    <div class="card table-card">
-      <div class="card-title">
-        <i class="fa-solid fa-rotate-left"></i>
-        <span>Riwayat & Status Peminjaman</span>
+    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+      <h2 class="flex items-center gap-2 text-lg font-bold text-slate-800 p-6 pb-4">
+        <i class="fa-solid fa-rotate-left text-[#524bee]"></i> Riwayat & Status Peminjaman
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-slate-50 border-y border-slate-200 text-[11px] font-bold text-slate-600 uppercase">
+            <tr>
+              <th class="px-6 py-3.5">NO</th>
+              <th class="px-6 py-3.5">NAMA PEMINJAM</th>
+              <th class="px-6 py-3.5">BUKU</th>
+              <th class="px-6 py-3.5">TGL PINJAM</th>
+              <th class="px-6 py-3.5">STATUS</th>
+              <th class="px-6 py-3.5">AKSI</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="px-6 py-4">1</td>
+              <td class="px-6 py-4">lala</td>
+              <td class="px-6 py-4 text-slate-600">Buku Dihapus</td>
+              <td class="px-6 py-4 text-slate-500">2026-08-10</td>
+              <td class="px-6 py-4"><span class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-xs font-semibold">Dikembalikan</span></td>
+              <td class="px-6 py-4"><span class="text-slate-400 italic">Selesai</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>NO</th>
-            <th>NAMA PEMINJAM</th>
-            <th>BUKU</th>
-            <th>TGL PINJAM</th>
-            <th>STATUS</th>
-            <th>AKSI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>lala</td>
-            <td>Buku Dihapus</td>
-            <td>2026-08-10</td>
-            <td><span class="badge-status-returned">Dikembalikan</span></td>
-            <td><span class="text-muted-italic">Selesai</span></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
+
   </div>
 
 </body>
