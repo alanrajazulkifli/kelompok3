@@ -19,10 +19,12 @@ peminjam
 tgl_jatuh_tempo
 status (dipinjam / selesai)
 
+selesai
 
 
 
-alan Struktur MVC api
+
+alan Struktur MVC api controller
 lala  Model  
 moza  sama fatimah bikin db.php di config
 rifki dan nazmi bikin Layout Tailwind CSS, Integrasi Fetch API, Form & Modal UI
