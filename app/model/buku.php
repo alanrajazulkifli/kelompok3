@@ -1,5 +1,5 @@
 <?php
-class buku{
+class Buku{
     private $conn;
     private $table_name = "tb_buku";
 
