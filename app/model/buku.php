@@ -1,12 +1,13 @@
 <?php
 class buku{
     private $conn;
-    private $table_name = "tb_buku";
+    private $table_name = "tb_peminjaman";
 
     public $id;
-    public $judul;
-    public $penulis;
-    public $penerbit;
+    public $buku_id;
+    public $peminjaman;
+    public $tgl_jatuh_tempo;
+    public $status;
 
     public function __construct($db) {
         $this->conn = $db;
@@ -19,14 +20,16 @@ class buku{
         return $stmt;
     }
      public function create() {
-        $query = "INSERT INTO " . $this->table_name . " (nis, nama, kelas) VALUES (:nis, :nama, :kelas)";
+        $query = "INSERT INTO " . $this->table_name . " (buku_id, peminjaman, tgl_jatuh_tempo, status) VALUES (:buku_id, :peminjaman, :tgl_jatuh_tempo, :status)";
         $stmt = $this->conn->prepare($query);
-        $this->nis = htmlspecialchars(strip_tags($this->nis));
-        $this->nama = htmlspecialchars(strip_tags($this->nama));
-        $this->kelas = htmlspecialchars(strip_tags($this->kelas));
-        $stmt->bindParam(":nis", $this->nis);
-        $stmt->bindParam(":nama", $this->nama);
-        $stmt->bindParam(":kelas", $this->kelas);
+        $this->buku_id = htmlspecialchars(strip_tags($this->buku_id));
+        $this->peminjaman = htmlspecialchars(strip_tags($this->peminjaman));
+        $this->tgl_jatuh_tempo = htmlspecialchars(strip_tags($this->tgl_jatuh_tempo));
+        $this->status = htmlspecialchars(strip_tags($this->status));
+        $stmt->bindParam(":buku_id", $this->buku_id);
+        $stmt->bindParam(":peminjaman", $this->peminjaman);
+        $stmt->bindParam(":tgl_jatuh_tempo", $this->tgl_jatuh_tempo);
+        $stmt->bindParam(":status", $this->status);
         if($stmt->execute()) {
             return true;
         }
