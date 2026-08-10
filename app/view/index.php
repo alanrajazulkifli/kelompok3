@@ -46,6 +46,14 @@
       </div>
     </div>
 
+    <!-- Forms Row -->
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-5">
+        
+      <!-- Form Tambah Buku -->
+      
+          <div>
+           
+      </div>
 
       <!-- Form Peminjaman Buku -->
       <div class="bg-white border border-slate-200 rounded-xl p-6">
@@ -75,6 +83,10 @@
         </form>
       </div>
     </div>
+
+    <!-- Tabel Daftar Buku -->
+    
+      
 
     <!-- Tabel Riwayat Peminjaman -->
     <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
