@@ -29,3 +29,5 @@
           <button type="button" class="w-full py-2.5 bg-[#524bee] hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg">Simpan Buku</button>
         </form>
       </div>
+      </div>
+    </div>
