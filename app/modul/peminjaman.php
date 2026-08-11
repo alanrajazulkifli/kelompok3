@@ -2,12 +2,7 @@
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../model/Buku.php';
 require_once __DIR__ . '/../model/Peminjaman.php';
-
-$database = new Database();
-$db = $database->getConnection();
-$bukuModel = new Buku($db);
-$peminjamanModel = new Peminjaman($db);
-$message = '';
+require_once __DIR__ . '/../config/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POST['form_type'] === 'borrow_book') {
     $borrower = trim($_POST['peminjaman'] ?? '');
