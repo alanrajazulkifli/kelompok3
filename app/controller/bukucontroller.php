@@ -18,6 +18,7 @@ class BukuController {
         echo json_encode(["status" => "success", "data" => $items]);
     }
 
+
     public function create($data) {
         if (empty($data->isbn) || empty($data->judul) || empty($data->kategori) || !isset($data->stok)) {
             http_response_code(400);
@@ -84,6 +85,46 @@ class BukuController {
         } else {
             http_response_code(500);
             echo json_encode(["status" => "error", "message" => "Gagal menghapus buku."]);
+        }
+    }
+}
+
+class KategoriController {
+    private $db;
+    private $kategori;
+
+    public function __construct() {
+        $database = new Database();
+        $this->db = $database->getConnection();
+        $this->kategori = new Kategori($this->db);
+    }
+
+    public function getAll() {
+        $stmt = $this->kategori->read();
+        $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode(["status" => "success", "data" => $items]);
+    }
+
+    public function create($data) {
+        if (empty($data->nama_kategori)) {
+            http_response_code(400);
+            echo json_encode(["status" => "error", "message" => "Nama kategori tidak boleh kosong!"]);
+            return;
+        }
+
+        if ($this->kategori->isNamaKategoriExists($data->nama_kategori)) {
+            http_response_code(400);
+            echo json_encode(["status" => "error", "message" => "Nama kategori sudah terdaftar!"]);
+            return;
+        }
+
+        $this->kategori->nama_kategori = $data->nama_kategori;
+
+        if ($this->kategori->create()) {
+            echo json_encode(["status" => "success", "message" => "Kategori berhasil ditambahkan."]);
+        } else {
+            http_response_code(500);
+            echo json_encode(["status" => "error", "message" => "Gagal menambahkan kategori."]);
         }
     }
 }
