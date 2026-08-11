@@ -14,7 +14,7 @@
       <div>
         <label class="block mb-1.5">Kode ISBN</label>
         <input type="text" class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee]" placeholder="Contoh: 978-602-1234-56-7">
-      </div>
+      </div>-
       <div>
         <label class="block mb-1.5">Kategori</label>
         <select class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee] bg-white">
