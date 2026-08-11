@@ -1,7 +1,7 @@
 <?php
 class Buku{
     private $conn;
-    private $table_name = "tb_buku";
+    private $table_name = "tb_bukuan";
 
     public $id;
     public $isbn;
