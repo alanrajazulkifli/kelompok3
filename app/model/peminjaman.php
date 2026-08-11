@@ -1,5 +1,5 @@
 <?php
-class buku{
+class Peminjaman{
     private $conn;
     private $table_name = "tb_peminjaman";
 
@@ -30,9 +30,11 @@ class buku{
         $stmt->bindParam(":peminjaman", $this->peminjaman);
         $stmt->bindParam(":tgl_jatuh_tempo", $this->tgl_jatuh_tempo);
         $stmt->bindParam(":status", $this->status);
-        if($stmt->execute()) {
+      {
+            
             return true;
         }
         return false;
 }
 }
+?>
