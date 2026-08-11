@@ -1,5 +1,5 @@
-
-    <!-- Tabel Daftar Buku -->
+ <!-- Tabel Daftar Buku -->
+  
     <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
       <h2 class="flex items-center gap-2 text-lg font-bold text-slate-800 p-6 pb-4">
         <i class="fa-solid fa-chart-simple text-[#524bee]"></i> Daftar Buku Perpustakaan
@@ -36,4 +36,5 @@
           </tbody>
         </table>
       </div>
+    </div>
     </div>
