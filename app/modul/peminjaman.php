@@ -1,10 +1,36 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../model/Buku.php';
+require_once __DIR__ . '/../model/Peminjaman.php';
 
 $database = new Database();
 $db = $database->getConnection();
 $bukuModel = new Buku($db);
+$peminjamanModel = new Peminjaman($db);
+$message = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POST['form_type'] === 'borrow_book') {
+    $borrower = trim($_POST['peminjaman'] ?? '');
+    $buku_id = intval($_POST['buku_id'] ?? 0);
+    $tgl_jatuh_tempo = trim($_POST['tgl_jatuh_tempo'] ?? '');
+    $status = trim($_POST['status'] ?? 'dipinjam');
+
+    if ($borrower === '' || $buku_id <= 0 || $tgl_jatuh_tempo === '') {
+        $message = 'Silakan pilih buku, isi nama peminjam, dan tanggal jatuh tempo.';
+    } else {
+        $peminjamanModel->buku_id = $buku_id;
+        $peminjamanModel->peminjaman = $borrower;
+        $peminjamanModel->tgl_jatuh_tempo = $tgl_jatuh_tempo;
+        $peminjamanModel->status = $status;
+
+        if ($peminjamanModel->create()) {
+            $message = 'Peminjaman berhasil disimpan.';
+        } else {
+            $message = 'Gagal menyimpan peminjaman. Coba lagi.';
+        }
+    }
+}
+
 $availableBooks = $bukuModel->read()->fetchAll(PDO::FETCH_ASSOC);
 $defaultDueDate = date('Y-m-d', strtotime('+7 days'));
 ?>
@@ -15,6 +41,10 @@ $defaultDueDate = date('Y-m-d', strtotime('+7 days'));
       <i class="fa-regular fa-user text-[#524bee]"></i> Form Peminjaman Buku
     </h2>
     <form method="post" class="space-y-4 text-xs font-semibold text-slate-600">
+      <input type="hidden" name="form_type" value="borrow_book">
+      <?php if ($message): ?>
+        <div class="rounded-lg bg-rose-50 border border-rose-100 p-4 text-sm text-rose-700"><?= htmlspecialchars($message) ?></div>
+      <?php endif; ?>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label class="block mb-1.5">Nama Peminjam</label>
