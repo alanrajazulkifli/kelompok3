@@ -48,6 +48,7 @@
 
     <!-- Forms Row -->
      <?php
+      include "../modul/kategori.php";
       include "../modul/tambah.php";
       include "../modul/peminjaman.php";
       include "../modul/tabletambah.php";
