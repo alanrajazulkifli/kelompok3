@@ -1,7 +1,7 @@
 
 <?php
 // Query untuk mengambil seluruh data buku
-$query = mysqli_query($koneksi, "SELECT * FROM buku");
+$query = mysqli_query($koneksi, "SELECT * FROM tb_buku");
 ?>
     <!-- Tabel Riwayat Peminjaman -->
 <?php
