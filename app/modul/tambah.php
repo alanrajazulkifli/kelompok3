@@ -21,6 +21,14 @@
         <label class="block mb-1.5">Kategori</label>
         <select name="id_kategori" class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee] bg-white" required>
           <option value="">-- Pilih Kategori --</option>
+          <?php
+          // Ambil data kategori dari database
+          $queryKategori = mysqli_query($conn, "SELECT * FROM tb_kategori");
+          while ($kategori = mysqli_fetch_assoc($queryKategori)) {
+              echo '<option value="' . $kategori['id_kategori'] . '">' . $kategori['kategori'] . '</option>';
+          }
+          ?>
+          
          
         </select>
       </div>
