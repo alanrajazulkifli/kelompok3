@@ -18,11 +18,19 @@
         <input type="text" name="isbn" class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee]" placeholder="Contoh: 978-602-1234-56-7" required>
       </div>
       <div>
-        <label class="block mb-1.5">Kategori</label>
-        <select name="id_kategori" class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee] bg-white" required>
-          <option value="">-- Pilih Kategori --</option>
-         
-        </select>
+       <label class="form-label">kategori</label>
+         <select class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none
+  <option value="">Pilih Kategori</option>
+  <?php
+  $sqlkategori = $conn->query("SELECT * FROM tb_kategori");
+  foreach ($sqlkategori as $row) {
+    // PASTIKAN menggunakan id_kategori sesuai struktur tabel anda
+    ?>
+    <option value="<?= $row['id_kategori'] ?>"><?= $row['kategori'] ?></option>
+  <?php
+  }
+  ?>
+</select>
       </div>
       <div>
         <label class="block mb-1.5">Jumlah Stok</label>
@@ -32,4 +40,5 @@
       <!-- Ubah type ke "submit" agar form bisa dikirim -->
       <button type="submit" class="w-full py-2.5 bg-[#524bee] hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg">Simpan Buku</button>
     </form>
+  </div>
   </div>
