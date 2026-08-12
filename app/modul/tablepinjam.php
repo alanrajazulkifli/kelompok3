@@ -63,7 +63,7 @@ $bookList = $bukuModel->read()->fetchAll(PDO::FETCH_ASSOC);
               <td class="px-6 py-4 font-semibold text-emerald-600">3 unit</td>
               <td class="px-6 py-4"><button class="text-rose-500"><i class="fa-regular fa-trash-can"></i></button></td>
             </tr>
-             <tbody class="divide-y divide-slate-100">
+             <tbody class="divide-y divide-slate-100">   
             <?php if (count($bookList) > 0): ?>
               <?php foreach ($bookList as $index => $book): ?>
                 <tr>
