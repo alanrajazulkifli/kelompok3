@@ -25,9 +25,7 @@
               <td class="px-6 py-4"><span class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-xs font-semibold">Dikembalikan</span></td>
               <td class="px-6 py-4"><span class="text-slate-400 italic">Selesai</span></td>
             </tr>
-<<<<<<< HEAD
           </tbody>
-=======
              <tbody class="divide-y divide-slate-100">
             <?php if (count($bookList) > 0): ?>
               <?php foreach ($bookList as $index => $book): ?>
@@ -46,7 +44,6 @@
               </tr>
             <?php endif; ?>
            </tbody>
->>>>>>> 1ee2912d2f8d459b360a5824c402eefee951f5bf
         </table>
       </div>
     </div>
