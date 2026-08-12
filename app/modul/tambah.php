@@ -21,25 +21,7 @@
         <label class="block mb-1.5">Kategori</label>
         <select name="id_kategori" class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee] bg-white" required>
           <option value="">-- Pilih Kategori --</option>
-          <?php
-            // Memastikan variabel koneksi menggunakan $db (bila pakai PDO/OOP) atau $conn
-            $koneksi = isset($conn) ? $conn : (isset($db) ? $db : null);
-
-            if ($koneksi) {
-                // Eksekusi query ambil data kategori
-                $sqlkategori = $koneksi->query("SELECT * FROM tb_kategori");
-                
-                if ($sqlkategori) {
-                    foreach ($sqlkategori as $row) {
-                        ?>
-                        <option value="<?= htmlspecialchars($row['id_kategori']) ?>">
-                            <?= htmlspecialchars($row['kategori']) ?>
-                        </option>
-                        <?php
-                    }
-                }
-            }
-          ?>
+         
         </select>
       </div>
       <div>
