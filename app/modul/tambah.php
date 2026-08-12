@@ -23,15 +23,6 @@
           <option value="">-- Pilih Kategori --</option>
           <?php
 
-          // Ambil data kategori dari database
-          $queryKategori = mysqli_query($conn, "SELECT * FROM tb_kategori");
-          while ($kategori = mysqli_fetch_assoc($queryKategori)) {
-              echo '<option value="' . $kategori['id_kategori'] . '">' . $kategori['kategori'] . '</option>';
-          }
-          ?>
-          
-         
-
             // Ambil data kategori
             $sqlkategori = $db->query("SELECT * FROM tb_kategori");
             if ($sqlkategori) {

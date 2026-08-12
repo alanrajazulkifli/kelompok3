@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 12, 2026 at 04:13 AM
+-- Generation Time: Aug 12, 2026 at 04:32 AM
 -- Server version: 8.0.17
 -- PHP Version: 7.3.10
 
@@ -42,7 +42,7 @@ CREATE TABLE `tb_buku` (
 
 INSERT INTO `tb_buku` (`id`, `isbn`, `judul`, `id_kategori`, `stok_tersedia`) VALUES
 (4, '8777', 'buku rohani', 8, 21),
-(5, '2111111', 'laskar pelangi', 9, 12),
+(5, '2111111', 'laskar pelangi', 9, 11),
 (6, '21111111111111111111', 'buku html', 7, 2110),
 (7, '99777', 'asep', 8, 211);
 
@@ -102,7 +102,8 @@ CREATE TABLE `tb_peminjaman` (
 --
 
 INSERT INTO `tb_peminjaman` (`id`, `nama`, `id_buku`, `tgl_pinjam`, `created_at`) VALUES
-(1, 'celana', 6, '2026-08-12', '2026-08-12 04:09:10');
+(1, 'celana', 6, '2026-08-12', '2026-08-12 04:09:10'),
+(2, 'sahrul', 5, '2026-08-12', '2026-08-12 04:29:54');
 
 --
 -- Indexes for dumped tables
@@ -161,7 +162,7 @@ ALTER TABLE `tb_peminjam`
 -- AUTO_INCREMENT for table `tb_peminjaman`
 --
 ALTER TABLE `tb_peminjaman`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
