@@ -1,3 +1,14 @@
+<?php
+require_once __DIR__ . '/../controller/bukucontroller.php';
+
+$bukuController = new BukuController();
+// Panggil fungsi jika ada query ?delete_id= di URL
+if (isset($_GET['delete_id'])) {
+    $bukuController->deleteFromUrl($_GET['delete_id']);
+}
+?>
+
+
 <!-- Wrapper Tabel -->
 <div class="space-y-6">
 

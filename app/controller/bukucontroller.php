@@ -91,6 +91,24 @@ class BukuController {
             echo json_encode(["status" => "error", "message" => "Gagal menghapus buku."]);
         }
     }
+
+    // Tambahkan fungsi ini di dalam class BukuController
+        public function deleteFromUrl($id) {
+            if (empty($id)) {
+                echo "<script>alert('ID tidak ditemukan!');</script>";
+                return;
+            }
+
+            $this->buku->id = $id;
+
+            if ($this->buku->delete()) {
+                // Redirect untuk refresh halaman dan menghapus parameter ?delete_id= di URL
+                echo "<script>alert('Buku berhasil dihapus.'); window.location.href = 'index.php';</script>";
+                exit;
+            } else {
+                echo "<script>alert('Gagal menghapus buku dari database.');</script>";
+            }
+        }
 }
 
 class KategoriController {
