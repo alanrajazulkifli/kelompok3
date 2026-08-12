@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
+require_once __DIR__ . '/../controller/bukucontroller.php';
 
 // 1. Inisialisasi Koneksi
 $database = new Database();

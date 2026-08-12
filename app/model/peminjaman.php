@@ -4,10 +4,10 @@ class Peminjaman{
     private $table_name = "tb_peminjaman";
 
     public $id;
-    public $buku_id;
-    public $peminjaman;
-    public $tgl_jatuh_tempo;
-    public $status;
+    public $nama;
+    public $id_buku;
+    public $tgl_pinjam;
+    public $created_at;
 
     public function __construct($db) {
         $this->conn = $db;
@@ -20,18 +20,15 @@ class Peminjaman{
         return $stmt;
     }
      public function create() {
-        $query = "INSERT INTO " . $this->table_name . " (buku_id, peminjaman, tgl_jatuh_tempo, status) VALUES (:buku_id, :peminjaman, :tgl_jatuh_tempo, :status)";
+        $query = "INSERT INTO " . $this->table_name . " (nama, id_buku, tgl_pinjam, created_at) VALUES (:nama, :id_buku, :tgl_pinjam, :created_at)";
         $stmt = $this->conn->prepare($query);
-        $this->buku_id = htmlspecialchars(strip_tags($this->buku_id));
-        $this->peminjaman = htmlspecialchars(strip_tags($this->peminjaman));
-        $this->tgl_jatuh_tempo = htmlspecialchars(strip_tags($this->tgl_jatuh_tempo));
-        $this->status = htmlspecialchars(strip_tags($this->status));
-        $stmt->bindParam(":buku_id", $this->buku_id);
-        $stmt->bindParam(":peminjaman", $this->peminjaman);
-        $stmt->bindParam(":tgl_jatuh_tempo", $this->tgl_jatuh_tempo);
-        $stmt->bindParam(":status", $this->status);
-      {
-            
+
+        $stmt->bindParam(":nama", $this->nama);
+        $stmt->bindParam(":id_buku", $this->id_buku);
+        $stmt->bindParam(":tgl_pinjam", $this->tgl_pinjam);
+        $stmt->bindParam(":created_at", $this->created_at);
+
+        if($stmt->execute()) {
             return true;
         }
         return false;
