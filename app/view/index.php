@@ -55,7 +55,7 @@
       include "../modul/tablepinjam.php";
         ?>
     
-    <!-- Tabel Daftar Buku -->
+    <!-- Tabel Daftar Buk -->
     <!-- Tabel Riwayat Peminjaman -->
   
 
