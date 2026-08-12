@@ -25,7 +25,28 @@
               <td class="px-6 py-4"><span class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-xs font-semibold">Dikembalikan</span></td>
               <td class="px-6 py-4"><span class="text-slate-400 italic">Selesai</span></td>
             </tr>
+<<<<<<< HEAD
           </tbody>
+=======
+             <tbody class="divide-y divide-slate-100">
+            <?php if (count($bookList) > 0): ?>
+              <?php foreach ($bookList as $index => $book): ?>
+                <tr>
+                  <td class="px-6 py-4"><?= $index + 1 ?></td>
+                  <td class="px-6 py-4 text-slate-500"><?= htmlspecialchars($book['isbn']) ?></td>
+                  <td class="px-6 py-4 font-bold"><?= htmlspecialchars($book['judul']) ?></td>
+                  <td class="px-6 py-4"><span class="bg-slate-100 px-3 py-1 rounded-full text-xs"><?= htmlspecialchars($book['kategori']) ?></span></td>
+                  <td class="px-6 py-4 font-semibold text-emerald-600"><?= htmlspecialchars($book['stok_tersedia']) ?> unit</td>
+                  <td class="px-6 py-4"><button type="button" class="text-rose-500"><i class="fa-regular fa-trash-can"></i></button></td>
+                </tr>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <tr>
+                <td colspan="6" class="px-6 py-4 text-center text-slate-500">Belum ada buku di perpustakaan.</td>
+              </tr>
+            <?php endif; ?>
+           </tbody>
+>>>>>>> 1ee2912d2f8d459b360a5824c402eefee951f5bf
         </table>
       </div>
     </div>
