@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 12, 2026 at 12:34 AM
+-- Generation Time: Aug 12, 2026 at 04:13 AM
 -- Server version: 8.0.17
 -- PHP Version: 7.3.10
 
@@ -36,6 +36,16 @@ CREATE TABLE `tb_buku` (
   `stok_tersedia` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `tb_buku`
+--
+
+INSERT INTO `tb_buku` (`id`, `isbn`, `judul`, `id_kategori`, `stok_tersedia`) VALUES
+(4, '8777', 'buku rohani', 8, 21),
+(5, '2111111', 'laskar pelangi', 9, 12),
+(6, '21111111111111111111', 'buku html', 7, 2110),
+(7, '99777', 'asep', 8, 211);
+
 -- --------------------------------------------------------
 
 --
@@ -54,7 +64,10 @@ CREATE TABLE `tb_kategori` (
 INSERT INTO `tb_kategori` (`id_kategori`, `kategori`) VALUES
 (4, 'cerita'),
 (5, 'sejarah'),
-(6, 'cinta');
+(6, 'cinta'),
+(7, 'kisah'),
+(8, 'agama'),
+(9, 'novel');
 
 -- --------------------------------------------------------
 
@@ -70,6 +83,27 @@ CREATE TABLE `tb_peminjam` (
   `status` enum('dipinjam','selesai') NOT NULL DEFAULT 'dipinjam'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_peminjaman`
+--
+
+CREATE TABLE `tb_peminjaman` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `id_buku` int(11) NOT NULL,
+  `tgl_pinjam` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `tb_peminjaman`
+--
+
+INSERT INTO `tb_peminjaman` (`id`, `nama`, `id_buku`, `tgl_pinjam`, `created_at`) VALUES
+(1, 'celana', 6, '2026-08-12', '2026-08-12 04:09:10');
+
 --
 -- Indexes for dumped tables
 --
@@ -79,7 +113,7 @@ CREATE TABLE `tb_peminjam` (
 --
 ALTER TABLE `tb_buku`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `tb_kategori` (`id_kategori`);
+  ADD KEY `fk_buku_kategori` (`id_kategori`);
 
 --
 -- Indexes for table `tb_kategori`
@@ -95,6 +129,13 @@ ALTER TABLE `tb_peminjam`
   ADD KEY `buku_id` (`buku_id`);
 
 --
+-- Indexes for table `tb_peminjaman`
+--
+ALTER TABLE `tb_peminjaman`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_peminjaman_buku` (`id_buku`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -102,19 +143,25 @@ ALTER TABLE `tb_peminjam`
 -- AUTO_INCREMENT for table `tb_buku`
 --
 ALTER TABLE `tb_buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
-  MODIFY `id_kategori` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kategori` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_peminjam`
 --
 ALTER TABLE `tb_peminjam`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tb_peminjaman`
+--
+ALTER TABLE `tb_peminjaman`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -124,13 +171,19 @@ ALTER TABLE `tb_peminjam`
 -- Constraints for table `tb_buku`
 --
 ALTER TABLE `tb_buku`
-  ADD CONSTRAINT `tb_kategori` FOREIGN KEY (`id_kategori`) REFERENCES `tb_buku` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `fk_buku_kategori` FOREIGN KEY (`id_kategori`) REFERENCES `tb_kategori` (`id_kategori`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `tb_peminjam`
 --
 ALTER TABLE `tb_peminjam`
   ADD CONSTRAINT `tb_peminjam_ibfk_1` FOREIGN KEY (`buku_id`) REFERENCES `tb_buku` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tb_peminjaman`
+--
+ALTER TABLE `tb_peminjaman`
+  ADD CONSTRAINT `fk_peminjaman_buku` FOREIGN KEY (`id_buku`) REFERENCES `tb_buku` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
