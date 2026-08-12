@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
         if ($peminjamanModel->create()) {
             $message = 'Peminjaman berhasil disimpan.';
         } else {
-            $message = 'Gagal menyimpan peminjaman. Coba lagi.';
+
         }
     }
 }
