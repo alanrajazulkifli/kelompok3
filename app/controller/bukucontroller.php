@@ -32,6 +32,7 @@ class BukuController {
             return;
         }
 
+        $this->buku->id = $data->id;
         $this->buku->isbn = $data->isbn;
         $this->buku->judul = $data->judul;
         $this->buku->kategori = $data->kategori;

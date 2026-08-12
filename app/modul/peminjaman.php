@@ -83,3 +83,4 @@ $defaultDueDate = date('Y-m-d', strtotime('+7 days'));
     <input type="hidden" name="status" value="dipinjam">
   </form>
 </div>
+</div>
