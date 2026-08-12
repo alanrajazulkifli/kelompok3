@@ -1,6 +1,3 @@
-      
-      
-      
       <!-- Form Peminjaman Buku -->
       <div class="bg-white border border-slate-200 rounded-xl p-6">
         <h2 class="flex items-center gap-2 text-lg font-bold text-slate-800 mb-5">
@@ -16,18 +13,6 @@
               <label class="block mb-1.5">Pilih Buku</label>
               <select class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee] bg-white">
                 <option value="">-- Pilih Buku yang Tersedia --</option>
-                <?php
-                  // Ambil data buku yang tersedia (stok > 0)
-                  $sqlbuku = $db->query("SELECT * FROM tb_buku WHERE stok > 0");
-                  if ($sqlbuku) {
-                      foreach ($sqlbuku as $buku) {
-                          ?>
-                          <option value="<?= htmlspecialchars($buku['id_buku']) ?>">
-                            <?= htmlspecialchars($buku['judul']) ?> (Stok: <?= htmlspecialchars($buku['stok']) ?>)
-                          </option>
-                          <?php
-                      }
-                  }
               </select>
             </div>
           </div>
