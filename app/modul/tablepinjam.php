@@ -1,7 +1,5 @@
-    <?php
-// Koneksi ke database (sesuaikan dengan settinganmu)
-$koneksi = mysqli_connect("localhost", "root", "rpl12345", "db_perpustakaan");
 
+<<<<<<< HEAD
 // Query untuk mengambil seluruh data buku
 $query = mysqli_query($koneksi, "SELECT * FROM buku");
 ?>
@@ -17,6 +15,8 @@ $bookList = $bukuModel->read()->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
     <!-- Tabel Daftar Buku Perpustakaan  -->
+=======
+>>>>>>> c3b7d23b012627c8d7c86a215a54d6d2375b497b
     <!-- Tabel Riwayat Peminjaman -->
     <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
       <h2 class="flex items-center gap-2 text-lg font-bold text-slate-800 p-6 pb-4">
@@ -35,34 +35,15 @@ $bookList = $bukuModel->read()->fetchAll(PDO::FETCH_ASSOC);
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-100">
-            
             <tr>
-              <td class="px-6 py-4"><?= $no++; ?>1</td>
-              <td class="px-6 py-4 text-slate-500"><?= htmlspecialchars($buku['isbn']); ?></td>
-              <td class="px-6 py-4 font-bold"><?= htmlspecialchars($buku['judul']); ?></td>
-              <td class="px-6 py-4">
-                <span class="bg-slate-100 px-3 py-1 rounded-full text-xs">
-                  <?= htmlspecialchars($buku['kategori']); ?>
-                </span>
-              </td>
-              <td class="px-6 py-4 font-semibold text-emerald-600">
-                <?= htmlspecialchars($buku['stok']); ?> unit
-              </td>
-              <td class="px-6 py-4">
-                <!-- Tombol Hapus dengan mengirim ID buku -->
-              <a href="hapus.php?id=<?= $buku['id']; ?>" onclick="return confirm('Yakin ingin menghapus?');" class="text-rose-500 hover:text-rose-700">
-                <i class="fa-regular fa-trash-can"></i>
-              </a>
-            </td>
-            <tr>
-
-              <td class="px-6 py-4">2</td>
-              <td class="px-6 py-4 text-slate-500">978-623-01-0001-1</td>
-              <td class="px-6 py-4 font-bold">Laskar Pelangi</td>
-              <td class="px-6 py-4"><span class="bg-slate-100 px-3 py-1 rounded-full text-xs">Novel</span></td>
-              <td class="px-6 py-4 font-semibold text-emerald-600">3 unit</td>
-              <td class="px-6 py-4"><button class="text-rose-500"><i class="fa-regular fa-trash-can"></i></button></td>
+              <td class="px-6 py-4">1</td>
+              <td class="px-6 py-4">lala</td>
+              <td class="px-6 py-4 text-slate-600">Buku Dihapus</td>
+              <td class="px-6 py-4 text-slate-500">2026-08-10</td>
+              <td class="px-6 py-4"><span class="bg-emerald-100 text-emerald-600 px-3 py-1 rounded-full text-xs font-semibold">Dikembalikan</span></td>
+              <td class="px-6 py-4"><span class="text-slate-400 italic">Selesai</span></td>
             </tr>
+          </tbody>
              <tbody class="divide-y divide-slate-100">
             <?php if (count($bookList) > 0): ?>
               <?php foreach ($bookList as $index => $book): ?>
