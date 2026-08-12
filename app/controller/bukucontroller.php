@@ -73,6 +73,9 @@ class BukuController {
         }
     }
 
+
+    
+
     public function delete($data) {
         if (empty($data->id)) {
             http_response_code(400);

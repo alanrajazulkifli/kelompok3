@@ -35,4 +35,14 @@ class Buku{
         }
         return false;
 }
+        public function delete() {
+            $query = "DELETE FROM tb_buku WHERE id = :id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':id', $this->id);
+            
+            if ($stmt->execute()) {
+                return true;
+            }
+            return false;
+        }
 }
