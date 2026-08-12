@@ -16,7 +16,7 @@ $bukuModel = new Buku($db);
 $bookList = $bukuModel->read()->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-    <!-- Tabel Daftar Buku Perpustakaan -->
+    <!-- Tabel Daftar Buku Perpustakaan  -->
     <!-- Tabel Riwayat Peminjaman -->
     <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
       <h2 class="flex items-center gap-2 text-lg font-bold text-slate-800 p-6 pb-4">
