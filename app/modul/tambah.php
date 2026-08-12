@@ -68,6 +68,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
         <select name="id_kategori" class="w-full p-2.5 text-sm font-normal border border-slate-300 rounded-lg outline-none focus:border-[#524bee] bg-white" required>
           <option value="">-- Pilih Kategori --</option>
           <?php
+<<<<<<< HEAD
+          // Ambil data kategori dari database
+          $queryKategori = mysqli_query($conn, "SELECT * FROM tb_kategori");
+          while ($kategori = mysqli_fetch_assoc($queryKategori)) {
+              echo '<option value="' . $kategori['id_kategori'] . '">' . $kategori['kategori'] . '</option>';
+          }
+          ?>
+          
+         
+=======
             // Ambil data kategori
             $sqlkategori = $db->query("SELECT * FROM tb_kategori");
             if ($sqlkategori) {
@@ -80,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
                 }
             }
           ?>
+>>>>>>> d2dd899d86b822d626746a6311f795b24510b0ae
         </select>
       </div>
 
