@@ -1,20 +1,4 @@
 
-<?php
-// Query untuk mengambil seluruh data buku
-$query = mysqli_query($koneksi, "SELECT * FROM tb_buku");
-?>
-    <!-- Tabel Riwayat Peminjaman -->
-<?php
-require_once __DIR__ . '/../config/db.php';
-require_once __DIR__ . '/../model/Buku.php';
-
-$database = new Database();
-$db = $database->getConnection();
-$bukuModel = new Buku($db);
-$bookList = $bukuModel->read()->fetchAll(PDO::FETCH_ASSOC);
-?>
-
-    <!-- Tabel Daftar Buku Perpustakaan  -->
     <!-- Tabel Riwayat Peminjaman -->
     <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
       <h2 class="flex items-center gap-2 text-lg font-bold text-slate-800 p-6 pb-4">
@@ -42,24 +26,6 @@ $bookList = $bukuModel->read()->fetchAll(PDO::FETCH_ASSOC);
               <td class="px-6 py-4"><span class="text-slate-400 italic">Selesai</span></td>
             </tr>
           </tbody>
-             <tbody class="divide-y divide-slate-100">
-            <?php if (count($bookList) > 0): ?>
-              <?php foreach ($bookList as $index => $book): ?>
-                <tr>
-                  <td class="px-6 py-4"><?= $index + 1 ?></td>
-                  <td class="px-6 py-4 text-slate-500"><?= htmlspecialchars($book['isbn']) ?></td>
-                  <td class="px-6 py-4 font-bold"><?= htmlspecialchars($book['judul']) ?></td>
-                  <td class="px-6 py-4"><span class="bg-slate-100 px-3 py-1 rounded-full text-xs"><?= htmlspecialchars($book['kategori']) ?></span></td>
-                  <td class="px-6 py-4 font-semibold text-emerald-600"><?= htmlspecialchars($book['stok_tersedia']) ?> unit</td>
-                  <td class="px-6 py-4"><button type="button" class="text-rose-500"><i class="fa-regular fa-trash-can"></i></button></td>
-                </tr>
-              <?php endforeach; ?>
-            <?php else: ?>
-              <tr>
-                <td colspan="6" class="px-6 py-4 text-center text-slate-500">Belum ada buku di perpustakaan.</td>
-              </tr>
-            <?php endif; ?>
-           </tbody>
         </table>
       </div>
     </div>
