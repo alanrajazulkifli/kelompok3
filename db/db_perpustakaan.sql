@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 11, 2026 at 03:56 AM
+-- Generation Time: Aug 12, 2026 at 12:34 AM
 -- Server version: 8.0.17
 -- PHP Version: 7.3.10
 
@@ -32,9 +32,29 @@ CREATE TABLE `tb_buku` (
   `id` int(11) NOT NULL,
   `isbn` varchar(20) NOT NULL,
   `judul` varchar(255) NOT NULL,
-  `kategori` varchar(100) NOT NULL,
+  `id_kategori` int(100) NOT NULL,
   `stok_tersedia` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_kategori`
+--
+
+CREATE TABLE `tb_kategori` (
+  `id_kategori` int(50) NOT NULL,
+  `kategori` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='tb_buku';
+
+--
+-- Dumping data for table `tb_kategori`
+--
+
+INSERT INTO `tb_kategori` (`id_kategori`, `kategori`) VALUES
+(4, 'cerita'),
+(5, 'sejarah'),
+(6, 'cinta');
 
 -- --------------------------------------------------------
 
@@ -58,7 +78,14 @@ CREATE TABLE `tb_peminjam` (
 -- Indexes for table `tb_buku`
 --
 ALTER TABLE `tb_buku`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tb_kategori` (`id_kategori`);
+
+--
+-- Indexes for table `tb_kategori`
+--
+ALTER TABLE `tb_kategori`
+  ADD PRIMARY KEY (`id_kategori`);
 
 --
 -- Indexes for table `tb_peminjam`
@@ -78,6 +105,12 @@ ALTER TABLE `tb_buku`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tb_kategori`
+--
+ALTER TABLE `tb_kategori`
+  MODIFY `id_kategori` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `tb_peminjam`
 --
 ALTER TABLE `tb_peminjam`
@@ -86,6 +119,12 @@ ALTER TABLE `tb_peminjam`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `tb_buku`
+--
+ALTER TABLE `tb_buku`
+  ADD CONSTRAINT `tb_kategori` FOREIGN KEY (`id_kategori`) REFERENCES `tb_buku` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `tb_peminjam`
